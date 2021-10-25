@@ -34,4 +34,7 @@ jobs:
           echo test, and deploy your project.
 
       - name: Run ls command
-        run: ls -la 
+        run: | 
+          ls -la 
+          cd src
+          ls -la
