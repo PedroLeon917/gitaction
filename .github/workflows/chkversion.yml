@@ -38,6 +38,11 @@ jobs:
           ls -la 
           cd src
           ls -la
+      - name: Load Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: artifact_lastver
+          path: lastversion.txt
       - name: Create Artifact
         run: echo "Creando un artifact" > artifact.txt
       - name: Upload Artifact
