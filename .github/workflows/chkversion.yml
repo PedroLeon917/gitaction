@@ -43,19 +43,15 @@ jobs:
         with:
           name: artifact_lastver
           path: lastversion.txt
-      - name: Validate file
-        if: always()
-        run: |
-          test -e lastversion.txt
-          if [ $?=1 ]
-          then
-            echo "Fallo debo crear"
-          fi
-          echo $?
       - name: Create Artifact
+        if: failure()
         run: echo "0.0.0" > lastversion.txt
+      - name: chequeo
+        run: 
+          cat lastversion.txt
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
           name: artifact_lastver
           path: lastversion.txt
+ 
