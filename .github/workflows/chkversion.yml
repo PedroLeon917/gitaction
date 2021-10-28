@@ -47,6 +47,7 @@ jobs:
         if: failure()
         run: echo "0.0.0" > lastversion.txt
       - name: chequeo
+        if: always()
         run: 
           cat lastversion.txt
       - name: Upload Artifact
