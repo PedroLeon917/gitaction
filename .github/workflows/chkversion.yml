@@ -32,7 +32,6 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-
       - name: Run ls command
         run: | 
           ls -la 
@@ -49,15 +48,10 @@ jobs:
         run: |
           test -e lastversion.txt
           echo $?
-      - name: Load Artifact
+      - name: Create Artifact
+        run: echo "0.0.0" > lastversion.txt
+      - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
           name: artifact_lastver
           path: lastversion.txt
-      - name: Create Artifact
-        run: echo "Creando un artifact" > artifact.txt
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: artifact_job1
-          path: artifact.txt
