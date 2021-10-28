@@ -46,13 +46,14 @@ jobs:
       - name: Create Artifact
         if: failure()
         run: echo "0.0.0" > lastversion.txt
-      - name: chequeo
-        if: always()
-        run: 
-          cat lastversion.txt
       - name: Upload Artifact
+        if: failure()
         uses: actions/upload-artifact@v2
         with:
           name: artifact_lastver
           path: lastversion.txt
+      - name: chequeo
+        if: always()
+        run: 
+          cat lastversion.txt
  
