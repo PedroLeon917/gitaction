@@ -40,12 +40,12 @@ jobs:
           ls -la
           cd ..
       - name: download Artifact
-        if: always()
         uses: actions/download-artifact@v2
         with:
           name: artifact_lastver
           path: lastversion.txt
       - name: Validate file
+        if: always()
         run: |
           test -e lastversion.txt
           echo $?
