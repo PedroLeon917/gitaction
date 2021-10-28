@@ -52,6 +52,7 @@ jobs:
         with:
           name: artifact_lastver
           path: lastversion.txt
+          retention-days: 5
       - name: chequeo
         if: always()
         run: 
