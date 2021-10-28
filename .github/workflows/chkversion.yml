@@ -47,6 +47,10 @@ jobs:
         if: always()
         run: |
           test -e lastversion.txt
+          if [ $?=1 ]
+          then
+            echo "Fallo debo crear"
+          fi
           echo $?
       - name: Create Artifact
         run: echo "0.0.0" > lastversion.txt
